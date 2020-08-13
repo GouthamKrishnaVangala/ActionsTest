@@ -8,7 +8,7 @@ jobs:
         - name: Checkout
           uses: actions/checkout@v2
         - name: Install
-          uses: ianwalter/puppeteer@master
+        #   uses: ianwalter/puppeteer@master
           with:
             args: npm install
         - name: Test
