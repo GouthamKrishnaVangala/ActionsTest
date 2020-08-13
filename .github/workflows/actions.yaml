@@ -24,12 +24,20 @@ jobs:
        chromedriver --url-base=/wd/hub &
        sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
     
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and test
+    - name: install 
       run: |
         npm install
-        npm run chrome
+
+    - name: test
+      run: npm run chrome
+    
+    - uses: actions/upload-artifact@v1
+      if: failure()
+      with:
+        name: logs
+        path: test
