@@ -17,6 +17,7 @@
         "@wdio/spec-reporter": "^6.4.0",
         "allure-commandline": "^2.13.0",
         "chai": "^4.2.0",
+        "chromedriver": "^84.0.1",
         "cucumber-tsflow": "^3.4.1",
         "ts-node": "^8.10.2",
         "tsconfig-paths": "^3.9.0",
