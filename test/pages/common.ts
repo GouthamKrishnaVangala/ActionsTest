@@ -9,7 +9,7 @@ class Commmon {
         browser.pause(2000);
         $("#frm-signIn-name").setValue("gauthi449");
         $("#frm-signIn-password").setValue("gauthi449");
-        $('[class="button submit"]').click();
+        // $('[class="button submit"]').click();
         browser.pause(2000);
     }
 }
