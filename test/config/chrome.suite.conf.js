@@ -60,17 +60,15 @@ exports.config = {
         // {browserName: 'firefox',
         // 'moz:firefoxOptions': {
         { browserName: 'chrome',
-        // 'goog:chromeOptions': {
-      //     args: [
-      //       // '--no-sandbox',
-      //       // '--headless',
-      //       // '--disable-gpu',
-      //   //     // '--window-size=1920,1080'
-      //         ],
-      //   },
-      //   // 'cjson:metadata': {
-      //   //   device: process.env.SELENIUM_VERSION,
-        // },
+        'goog:chromeOptions': {
+          args: [
+            // '--no-sandbox',
+            // '--headless',
+            // '--disable-gpu',
+        //     // '--window-size=1920,1080'
+              '--start-maximized'
+              ],
+        },
       },
     ],
     //
@@ -182,17 +180,6 @@ exports.config = {
     reporters: [
         "spec"
     ], 
-    before: function (capabilities, specs) {
-      // browser.setWindowSize(parseInt(process.env.SCREEN_WIDTH, 10), parseInt(process.env.SCREEN_HEIGHT, 10));
-      browser.setWindowSize(1920, 1080);
-    },
-    afterStep: function (uri, feature, _a, stepData, context) {
-      var error = _a.error, result = _a.result, duration = _a.duration, passed = _a.passed;
-      if (error) {
-        context_1.addObject(error);
-        context_1.addScreenshot();
-      }
-    },
     afterFeature: function () {
       //browser.getLogs();
       const logTypes = browser.getLogTypes();

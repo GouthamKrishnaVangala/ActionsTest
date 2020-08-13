@@ -3,13 +3,7 @@
     "version": "1.0.0",
     "description": "WebdriverIO integration with Cucumber Framework and Browserstack using Typescript programming language",
     "scripts": {
-        "chrome": "node_modules/.bin/wdio ./test/config/chrome.suite.conf.js",
-        "firefox": "node_modules/.bin/wdio ./test/config/firefox.suite.conf.js",
-        "edge": "node_modules/.bin/wdio ./test/config/edge.suite.conf.js",
-        "bstack": "node_modules/.bin/wdio ./test/config/suite.browserstack.conf.js",
-        "wdio": "node_modules/.bin/wdio ./test/config/wdio.conf.js",
-        "allure": "allure generate ./allure-results --clean && allure open",
-        "f": "node test/stepDefinitions/firefox.js"
+        "chrome": "node_modules/.bin/wdio ./test/config/chrome.suite.conf.js"
     },
     "devDependencies": {
         "@types/chai": "^4.2.11",

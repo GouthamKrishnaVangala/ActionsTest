@@ -1,5 +1,6 @@
-name: Actions
-on: [started]
+name: Actions Test
+
+on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,5 +18,5 @@ jobs:
         - uses: actions/upload-artifact@v1
           if: failure()
           with:
-            name: logs
-            path: logs
+            name: result
+            path: test/
