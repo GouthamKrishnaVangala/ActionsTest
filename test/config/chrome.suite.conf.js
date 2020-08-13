@@ -63,7 +63,7 @@ exports.config = {
         'goog:chromeOptions': {
           args: [
             // '--no-sandbox',
-            // '--headless',
+              '--headless',
             // '--disable-gpu',
         //     // '--window-size=1920,1080'
               '--start-maximized'
@@ -138,7 +138,7 @@ exports.config = {
     //         firefox: { version: '0.26.0' }
     //     },
     // },
-    services: ["chromedriver"],
+    // services: ["chromedriver"],
     //  services: ["browserstack"],
     //services: ["chromedriver", "geckodriver"],
     // Framework you want to run your specs with.
