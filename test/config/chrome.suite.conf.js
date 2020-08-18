@@ -49,25 +49,18 @@ exports.config = {
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
     capabilities: [
-/*         {
-          browserName: 'firefox',
-          browser_version : '71.0',
-          // os: 'WINDOWS',
-          // os_version: '7',
-          // name: 'single_test Windows 7 firefox',
-          // build: 'webdriver-browserstack single Test '+Date.now()
-        }   */
-        // {browserName: 'firefox',
-        // 'moz:firefoxOptions': {
         { browserName: 'chrome',
         'goog:chromeOptions': {
           args: [
-            // '--no-sandbox',
+             '--no-sandbox',
                  'headless',
-            // '--disable-gpu',
-        //     // '--window-size=1920,1080'
-             // '--start-maximized'
+             '--disable-gpu',
               ],
+        },
+      },
+      { browserName: 'firefox',
+      'moz:firefoxOptions': {
+          args: ['-headless'],
         },
       },
     ],
