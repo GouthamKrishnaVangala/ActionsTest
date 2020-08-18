@@ -1,4 +1,4 @@
-const defaultTimeoutIntervalLocal = process.env.DEBUG ? (60 * 60 * 500) : 90000;
+
 exports.config = {
     //
     // ====================
@@ -8,6 +8,9 @@ exports.config = {
     // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
     // on a remote machine).
     runner: "local",
+
+    user: process.env.BROWSERSTACK_USERNAME || 'goutham48',
+    key: process.env.BROWSERSTACK_ACCESS_KEY || 'DKjqZgWmzsEQkwQK4xNL', 
     //
     // Override default path ('/wd/hub') for chromedriver service.
     // path: "/wd/hub",
@@ -42,28 +45,64 @@ exports.config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 2,
+    maxInstances: 5,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
     capabilities: [
-        { browserName: 'chrome',
-        'goog:chromeOptions': {
-          args: [
-             '--no-sandbox',
-                 'headless',
-             '--disable-gpu',
-              ],
-        },
+      /* {
+          "os_version" : "14",
+          "device" : "iPad Pro 12.9 2020",
+          "browserName" : "iPad",
+          "real_mobile" : "true",
+          "deviceOrientation" : "landscape",
+          "name" : "image comparison test",
+          "build" : "webdriver-browserstack Store image comparison test "+Date.now(),
+          
+      } */
+      {
+          "os": 'Windows',
+          "os_version": '10',
+          "browserName": 'Chrome',
+          "browser_version" : '84.0',
+          "name": 'github actions test',
+          "build": 'webdriver-browserstack github actions test '+Date.now(),
       },
-      { browserName: 'firefox',
-      'moz:firefoxOptions': {
-          args: ['-headless'],
-        },
+      {
+          "os" : 'OS X',
+          "os_version" : 'Catalina',
+          "browserName" : 'Safari',
+          "browser_version" : '13.1',
+          "name": 'github actions test',
+          "build": 'webdriver-browserstack github actions test '+Date.now(),
       },
-    ],
+      {
+          "os" : 'OS X',
+          "os_version" : 'Mojave',
+          "browserName" : 'Safari',
+          "browser_version" : '12.0',
+          "name": 'github actions test',
+          "build": 'webdriver-browserstack github actions test '+Date.now(),
+      },
+      {
+          "os": 'Windows',
+          "os_version": '10',
+          "browserName": 'Edge',
+          "browser_version" : 'latest',
+          "name": 'github actions test',
+          "build": 'webdriver-browserstack github actions test '+Date.now(),
+      },
+      {
+          "os": 'Windows',
+          "os_version": '10',
+          "browserName": 'Firefox',
+          "browser_version" : 'latest',
+          "name": 'github actions test',
+          "build": 'webdriver-browserstack github actions test '+Date.now(),
+      }
+  ],
     //
     // ===================
     // Test Configurations
@@ -114,25 +153,11 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: [
-      ['selenium-standalone', {
-          logPath: 'logs',
-          installArgs: {
-              drivers: {
-                  chrome: { version: '84.0.4147.30' },
-                  firefox: { version: '0.27.0' }
-              }
-          },
-          args: {
-              drivers: {
-                  chrome: { version: '84.0.4147.30' },
-                  firefox: { version: '0.27.0' }
-              }
-          },
-      }]
-  ],
     // services: ["chromedriver"],
-    //  services: ["browserstack"],
+     services: ["browserstack",{
+      "browserstack.local" : 'false',
+      "resolution" : '1920x1080',
+     }],
     //services: ["chromedriver", "geckodriver"],
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -153,16 +178,16 @@ exports.config = {
         profile: [],
         strict: false,
         tagExpression: "",
-        timeout: defaultTimeoutIntervalLocal,
+        timeout: 90000,
         ignoreUndefinedDefinitions: false,
-        requireModule: [
+        /* requireModule: [
           // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
           "tsconfig-paths/register",
           () => {
             require("ts-node").register({ files: true });
           }
-        ], 
-        require: ["./test/stepDefinitions/*.steps.ts"] // <string[]> (file/dir) require files before executing features
+        ],  */
+        require: ["./build/stepDefinitions/*.steps.js"] // <string[]> (file/dir) require files before executing features
     },
     // The number of times to retry the entire specfile when it fails as a whole
     // specFileRetries: 1,

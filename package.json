@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "description": "WebdriverIO integration with Cucumber Framework and Browserstack using Typescript programming language",
     "scripts": {
-        "chrome": "node_modules/.bin/wdio ./test/config/chrome.suite.conf.js"
+        "local": "node_modules/.bin/wdio ./build/config/local.suite.conf.js",
+        "bstack": "node_modules/.bin/wdio ./build/config/bstack.suite.conf.js"
     },
     "devDependencies": {
         "@types/chai": "^4.2.12",
