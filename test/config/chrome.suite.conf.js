@@ -63,7 +63,7 @@ exports.config = {
         'goog:chromeOptions': {
           args: [
             // '--no-sandbox',
-                'headless',
+                // 'headless',
             // '--disable-gpu',
         //     // '--window-size=1920,1080'
              // '--start-maximized'
@@ -121,24 +121,24 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    // services: ['selenium-standalone'],
-    // seleniumInstallArgs: {
-    //     drivers: {
-    //         chrome: {
-    //             version: '83.0.4103.39', // depending on when u see this, you may want something newer
-    //             arch: process.arch,
-    //             baseURL: 'https://chromedriver.storage.googleapis.com',
-    //         },
-    //         firefox: { version: '0.26.0' }
-    //     },
-    // },
-    // seleniumArgs: {
-    //     drivers: {
-    //         chrome: { version: '83.0.4103.39' },
-    //         firefox: { version: '0.26.0' }
-    //     },
-    // },
-    services: ["chromedriver"],
+    services: [
+      ['selenium-standalone', {
+          logPath: 'logs',
+          installArgs: {
+              drivers: {
+                  chrome: { version: '84.0.4147.30' },
+                  firefox: { version: '0.26.0' }
+              }
+          },
+          args: {
+              drivers: {
+                  chrome: { version: '84.0.4147.30' },
+                  firefox: { version: '0.26.0' }
+              }
+          },
+      }]
+  ],
+    // services: ["chromedriver"],
     //  services: ["browserstack"],
     //services: ["chromedriver", "geckodriver"],
     // Framework you want to run your specs with.
