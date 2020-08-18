@@ -90,7 +90,7 @@ exports.config = {
           "name": "github actions test",
           "build": "webdriver-browserstack github actions test "+Date.now(),
       },
-      {
+      /* {
           "os": "Windows",
           "os_version": "10",
           "browserName": "Edge",
@@ -98,7 +98,7 @@ exports.config = {
           "resolution" : "1920x1080",
           "name": "github actions test",
           "build": "webdriver-browserstack github actions test "+Date.now(),
-      },
+      }, */
       {
           "os": "Windows",
           "os_version": "10",

@@ -1,7 +1,7 @@
-Feature: codetasty
- codetasty 
+Feature: codetasty test feature
+ codetasty test description
 
-    Scenario: codetasty for github actions
+    Scenario: codetasty test for github actions
         Given I am on the codetasty login page "https://codetasty.com/sign/in"
         # When  I give my credentials "bla@gmail.com", "abcdef"
         # And   click on login
@@ -20,5 +20,3 @@ Feature: codetasty
     #     And   I switch to other tab
     #     And   I refresh the browser
     #     Then  I will see that I am logged out
-    
-
