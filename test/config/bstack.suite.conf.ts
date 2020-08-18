@@ -63,44 +63,50 @@ exports.config = {
           
       } */
       {
-          "os": 'Windows',
-          "os_version": '10',
-          "browserName": 'Chrome',
-          "browser_version" : '84.0',
-          "name": 'github actions test',
-          "build": 'webdriver-browserstack github actions test '+Date.now(),
+          "os": "Windows",
+          "os_version": "10",
+          "browserName": "Chrome",
+          "browser_version" : "84.0",
+          "browserstack.selenium_version" : "4.0.0-alpha-6",
+          "resolution" : "1920x1080",
+          "name": "github actions test",
+          "build": "webdriver-browserstack github actions test "+Date.now(),
       },
       {
-          "os" : 'OS X',
-          "os_version" : 'Catalina',
-          "browserName" : 'Safari',
-          "browser_version" : '13.1',
-          "name": 'github actions test',
-          "build": 'webdriver-browserstack github actions test '+Date.now(),
+          "os" : "OS X",
+          "os_version" : "Catalina",
+          "browserName" : "Safari",
+          "browser_version" : "13.1",
+          "resolution" : "1920x1080",
+          "name": "github actions test",
+          "build": "webdriver-browserstack github actions test "+Date.now(),
       },
       {
-          "os" : 'OS X',
-          "os_version" : 'Mojave',
-          "browserName" : 'Safari',
-          "browser_version" : '12.0',
-          "name": 'github actions test',
-          "build": 'webdriver-browserstack github actions test '+Date.now(),
+          "os" : "OS X",
+          "os_version" : "Mojave",
+          "browserName" : "Safari",
+          "browser_version" : "12.0",
+          "resolution" : "1920x1080",
+          "name": "github actions test",
+          "build": "webdriver-browserstack github actions test "+Date.now(),
       },
       {
-          "os": 'Windows',
-          "os_version": '10',
-          "browserName": 'Edge',
-          "browser_version" : 'latest',
-          "name": 'github actions test',
-          "build": 'webdriver-browserstack github actions test '+Date.now(),
+          "os": "Windows",
+          "os_version": "10",
+          "browserName": "Edge",
+          "browser_version" : "latest",
+          "resolution" : "1920x1080",
+          "name": "github actions test",
+          "build": "webdriver-browserstack github actions test "+Date.now(),
       },
       {
-          "os": 'Windows',
-          "os_version": '10',
-          "browserName": 'Firefox',
-          "browser_version" : 'latest',
-          "name": 'github actions test',
-          "build": 'webdriver-browserstack github actions test '+Date.now(),
+          "os": "Windows",
+          "os_version": "10",
+          "browserName": "Firefox",
+          "browser_version" : "latest",
+          "resolution" : "1920x1080",
+          "name": "github actions test",
+          "build": "webdriver-browserstack github actions test "+Date.now(),
       }
   ],
     //
@@ -158,7 +164,6 @@ exports.config = {
        ["browserstack",
        {
       "browserstack.local" : 'false',
-      "resolution" : '1920x1080',
      }]
     ],
     //services: ["chromedriver", "geckodriver"],
@@ -202,8 +207,28 @@ exports.config = {
         "spec"
     ], 
     afterFeature: function () {
-      //browser.getLogs();
       const logTypes = browser.getLogTypes();
-      logTypes.forEach(logType => console.log(logType, browser.getLogs(logType)));
-   }
+      /* logTypes.forEach(logType => console.log(logType, browser.getLogs(logType))); */
+        var logs = browser.getLogs(logTypes[0]);
+        console.log(logs);
+       /*  var json: string = JSON.stringify(logs);
+       // console.log(json);
+        allureReporter.addArgument("Console Errors",json.split("},{").join("},\r\n{"));
+         var json1: string = json.split("},{").join("}!@#${");
+        json1 = json1.split("[{").join("");
+        json1 = json1.split("}]").join("");
+        json1 = json1.split("}").join("");
+        json1 = json1.split("{").join("");
+        json1 = json1.split("\"").join("");
+        allureReporter.addArgument("Console errors", json1)
+        var json2: string[] = json1.split("!@#$");
+        var totalLogs: number = json2.length;
+        for(var j: number = 0; j < totalLogs; j++){
+          var json3: string[] = json2[j].split(",");
+          var len:number = json3.length;
+          for(var k:number = 0; k < len; k++){
+            assert.notEqual(json3[k],"level:SEVERE", "Console Log Severe Error Found")
+          }
+        }  */
+    }
 };
