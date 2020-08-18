@@ -4,13 +4,14 @@
     "description": "WebdriverIO integration with Cucumber Framework and Browserstack using Typescript programming language",
     "scripts": {
         "local": "node_modules/.bin/wdio ./build/config/local.suite.conf.js",
-        "bstack": "node_modules/.bin/wdio ./build/config/bstack.suite.conf.js"
+        "bstack": "node_modules/.bin/wdio ./build/config/bstack.suite.conf.js",
+        "allure": "allure generate ./allure-results --clean && allure open"
     },
     "devDependencies": {
         "@types/chai": "^4.2.12",
         "@types/cucumber": "^6.0.1",
         "@types/node-fetch": "^2.5.7",
-        "@wdio/allure-reporter": "^6.3.0",
+        "@wdio/allure-reporter": "^6.3.6",
         "@wdio/browserstack-service": "^6.1.15",
         "@wdio/cli": "^6.4.0",
         "@wdio/cucumber-framework": "^6.4.0",
