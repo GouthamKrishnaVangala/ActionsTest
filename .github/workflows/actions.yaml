@@ -29,9 +29,13 @@ jobs:
       run: tsc
 
     - name: test
-      run: npm run bstack
+      run: npm run local
+
+    - name: reports
+      run: npm run allure
     
     - uses: actions/upload-artifact@v1
-      - name: reports
-        run: npm run allure
-        path: test/reports
+      if: failure()
+      with:
+        name: logs
+        path: test
