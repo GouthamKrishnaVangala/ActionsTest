@@ -63,7 +63,7 @@ exports.config = {
         'goog:chromeOptions': {
           args: [
             // '--no-sandbox',
-                'headless',
+                // 'headless',
             // '--disable-gpu',
         //     // '--window-size=1920,1080'
              // '--start-maximized'
@@ -127,13 +127,13 @@ exports.config = {
           installArgs: {
               drivers: {
                   chrome: { version: '84.0.4147.30' },
-                  firefox: { version: '0.26.0' }
+                  firefox: { version: '0.27.0' }
               }
           },
           args: {
               drivers: {
                   chrome: { version: '84.0.4147.30' },
-                  firefox: { version: '0.26.0' }
+                  firefox: { version: '0.27.0' }
               }
           },
       }]
