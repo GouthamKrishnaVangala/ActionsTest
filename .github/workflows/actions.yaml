@@ -2,7 +2,9 @@ name: ActionsTest
 
 
 on: [push]
-
+env:
+  BROWSERSTACK_ACCESS_KEY: "${{ secrets.BROWSERSTACK_ACCESS_KEY }}"
+  BROWSERSTACK_USERNAME: "${{ secrets.BROWSERSTACK_USERNAME }}"
 
 jobs:
   build:
