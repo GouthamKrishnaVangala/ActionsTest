@@ -5,7 +5,8 @@
     "scripts": {
         "local": "node_modules/.bin/wdio ./build/config/local.suite.conf.js",
         "bstack": "node_modules/.bin/wdio ./build/config/bstack.suite.conf.js",
-        "allure": "allure generate ./allure-results --clean && allure open"
+        "reports": "node report.js",
+        "allure": "allure generate ./allure-results --clean"
     },
     "devDependencies": {
         "@types/chai": "^4.2.12",
@@ -26,12 +27,15 @@
         "tsconfig-paths": "^3.9.0",
         "typescript": "^3.9.7",
         "wdio-chromedriver-service": "^6.0.3",
+        "wdio-cucumberjs-json-reporter": "^2.0.2",
+        "wdio-edgedriver-service": "^1.2.0",
         "webdriverio": "^6.4.0"
     },
     "dependencies": {
         "@wdio/runner": "^6.4.0",
         "@wdio/sync": "^6.4.0",
         "cucumber": "^6.0.5",
+        "msedgedriver": "^83.0.0",
         "prettier": "^2.0.5"
     }
 }

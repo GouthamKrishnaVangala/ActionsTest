@@ -61,7 +61,7 @@ exports.config = {
           "name" : "image comparison test",
           "build" : "webdriver-browserstack Store image comparison test "+Date.now(),
           
-      } */
+      }, */
       {
           "os": "Windows",
           "os_version": "10",
@@ -77,7 +77,7 @@ exports.config = {
           "os_version" : "Catalina",
           "browserName" : "Safari",
           "browser_version" : "13.1",
-          "resolution" : "1920x1080",
+          "resolution" : "1600x1200",
           "name": "github actions test",
           "build": "webdriver-browserstack github actions test "+Date.now(),
       },
@@ -86,28 +86,30 @@ exports.config = {
           "os_version" : "Mojave",
           "browserName" : "Safari",
           "browser_version" : "12.0",
-          "resolution" : "1920x1080",
+          "resolution" : "1280x960",
           "name": "github actions test",
           "build": "webdriver-browserstack github actions test "+Date.now(),
       },
-      /* {
-          "os": "Windows",
-          "os_version": "10",
-          "browserName": "Edge",
-          "browser_version" : "latest",
-          "resolution" : "1920x1080",
-          "name": "github actions test",
-          "build": "webdriver-browserstack github actions test "+Date.now(),
-      }, */
       {
           "os": "Windows",
           "os_version": "10",
           "browserName": "Firefox",
           "browser_version" : "latest",
+          "resolution" : "1440x900",
+          "name": "github actions test",
+          "build": "webdriver-browserstack github actions test "+Date.now(),
+      },
+      {
+          "os": "Windows",
+          "os_version": "10",
+          "browserName": "Edge",
+          "browser_version" : "latest",
+          "browserstack.selenium_version" : "4.0.0-alpha-6",
           "resolution" : "1920x1080",
           "name": "github actions test",
           "build": "webdriver-browserstack github actions test "+Date.now(),
       }
+      
   ],
     //
     // ===================

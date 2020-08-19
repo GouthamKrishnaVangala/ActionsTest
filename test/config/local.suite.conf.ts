@@ -49,7 +49,7 @@ exports.config = {
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
     capabilities: [
-        { browserName: 'chrome',
+       /*  { browserName: 'chrome',
         'goog:chromeOptions': {
           args: [
              '--no-sandbox',
@@ -62,7 +62,10 @@ exports.config = {
       'moz:firefoxOptions': {
           args: ['-headless'],
         },
-      },
+      }, */
+      {
+        browserName: 'MicrosoftEdge',
+    }
     ],
     //
     // ===================
@@ -114,7 +117,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: [
+    /* services: [
       ['selenium-standalone', {
           logPath: 'logs',
           installArgs: {
@@ -130,8 +133,8 @@ exports.config = {
               }
           },
       }]
-  ],
-    // services: ["chromedriver"],
+  ], */
+    services: ["edgedriver"],
     //  services: ["browserstack"],
     //services: ["chromedriver", "geckodriver"],
     // Framework you want to run your specs with.
@@ -170,11 +173,11 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-    reporters: ["spec", ['allure', {
-          outputDir: 'allure-results',
-          disableWebdriverStepsReporting: true,
-          disableWebdriverScreenshotsReporting: true,
-      }]
+    reporters: ["spec",  [ 'cucumberjs-json', {
+      jsonFolder: 'reports/',
+      language: 'en',
+  },
+],
     ], 
     afterFeature: function () {
       const logTypes = browser.getLogTypes();
