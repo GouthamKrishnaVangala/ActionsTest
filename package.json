@@ -6,7 +6,7 @@
         "local": "node_modules/.bin/wdio ./build/config/local.suite.conf.js",
         "bstack": "node_modules/.bin/wdio ./build/config/bstack.suite.conf.js",
         "reports": "node report.js",
-        "allure": "allure generate ./allure-results --clean && allure open"
+        "allure": "allure generate ./allure-results --clean"
     },
     "devDependencies": {
         "@types/chai": "^4.2.12",

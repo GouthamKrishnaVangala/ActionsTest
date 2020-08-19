@@ -34,8 +34,9 @@ jobs:
     - name: reports
       run: npm run allure
     
-    - uses: actions/upload-artifact@v1
-      if: failure()
+    - name: reports upload
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v2
       with:
-        name: logs
-        path: test
+        name: test report
+        path: reports/

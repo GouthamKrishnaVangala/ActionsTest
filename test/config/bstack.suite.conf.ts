@@ -9,8 +9,8 @@ exports.config = {
     // on a remote machine).
     runner: "local",
 
-    user: process.env.BROWSERSTACK_USERNAME || 'goutham48',
-    key: process.env.BROWSERSTACK_ACCESS_KEY || 'DKjqZgWmzsEQkwQK4xNL', 
+    user: process.env.BROWSERSTACK_USERNAME /* || 'goutham48' */,
+    key: process.env.BROWSERSTACK_ACCESS_KEY /* || 'DKjqZgWmzsEQkwQK4xNL' */, 
     //
     // Override default path ('/wd/hub') for chromedriver service.
     // path: "/wd/hub",
