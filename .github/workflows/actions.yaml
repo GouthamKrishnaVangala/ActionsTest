@@ -33,12 +33,5 @@ jobs:
     - name: test
       run: npm run bstack
 
-    - name: reports
-      run: npm run allure
-    
-    - name: reports upload
-      if: ${{ always() }}
-      uses: actions/upload-artifact@v2
-      with:
-        name: test report
-        path: reports/
+    - name: Allure report
+      uses: afiore/action-allure-report@v0.1.0
