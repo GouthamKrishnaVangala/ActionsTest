@@ -49,7 +49,7 @@ exports.config = {
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
     capabilities: [
-       /*  { browserName: 'chrome',
+        { browserName: 'chrome',
         'goog:chromeOptions': {
           args: [
              '--no-sandbox',
@@ -62,10 +62,10 @@ exports.config = {
       'moz:firefoxOptions': {
           args: ['-headless'],
         },
-      }, */
-      {
+      },
+      /* {
         browserName: 'MicrosoftEdge',
-    }
+    } */
     ],
     //
     // ===================
@@ -117,7 +117,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    /* services: [
+    services: [
       ['selenium-standalone', {
           logPath: 'logs',
           installArgs: {
@@ -133,8 +133,8 @@ exports.config = {
               }
           },
       }]
-  ], */
-    services: ["edgedriver"],
+  ],
+    // services: ["edgedriver"],
     //  services: ["browserstack"],
     //services: ["chromedriver", "geckodriver"],
     // Framework you want to run your specs with.
@@ -180,28 +180,31 @@ exports.config = {
 ],
     ], 
     afterFeature: function () {
-      const logTypes = browser.getLogTypes();
-      /* logTypes.forEach(logType => console.log(logType, browser.getLogs(logType))); */
-        var logs = browser.getLogs(logTypes[0]);
-        console.log(logs);
-       /*  var json: string = JSON.stringify(logs);
-       // console.log(json);
-        allureReporter.addArgument("Console Errors",json.split("},{").join("},\r\n{"));
-         var json1: string = json.split("},{").join("}!@#${");
-        json1 = json1.split("[{").join("");
-        json1 = json1.split("}]").join("");
-        json1 = json1.split("}").join("");
-        json1 = json1.split("{").join("");
-        json1 = json1.split("\"").join("");
-        allureReporter.addArgument("Console errors", json1)
-        var json2: string[] = json1.split("!@#$");
-        var totalLogs: number = json2.length;
-        for(var j: number = 0; j < totalLogs; j++){
-          var json3: string[] = json2[j].split(",");
-          var len:number = json3.length;
-          for(var k:number = 0; k < len; k++){
-            assert.notEqual(json3[k],"level:SEVERE", "Console Log Severe Error Found")
-          }
-        }  */
+      console.log(browser.requestedCapabilities.browserName);
+      if(browser.requestedCapabilities.browserName == "chrome"){
+        const logTypes = browser.getLogTypes();
+        /* logTypes.forEach(logType => console.log(logType, browser.getLogs(logType))); */
+          var logs = browser.getLogs(logTypes[0]);
+          console.log(logs);
+         /*  var json: string = JSON.stringify(logs);
+         // console.log(json);
+          allureReporter.addArgument("Console Errors",json.split("},{").join("},\r\n{"));
+           var json1: string = json.split("},{").join("}!@#${");
+          json1 = json1.split("[{").join("");
+          json1 = json1.split("}]").join("");
+          json1 = json1.split("}").join("");
+          json1 = json1.split("{").join("");
+          json1 = json1.split("\"").join("");
+          allureReporter.addArgument("Console errors", json1)
+          var json2: string[] = json1.split("!@#$");
+          var totalLogs: number = json2.length;
+          for(var j: number = 0; j < totalLogs; j++){
+            var json3: string[] = json2[j].split(",");
+            var len:number = json3.length;
+            for(var k:number = 0; k < len; k++){
+              assert.notEqual(json3[k],"level:SEVERE", "Console Log Severe Error Found")
+            }
+          }  */
+      }
     }
 };
