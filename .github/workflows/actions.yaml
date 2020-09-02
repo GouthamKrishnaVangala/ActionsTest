@@ -24,7 +24,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-        
+
     - name: install 
       run: npm install
 
@@ -35,4 +35,4 @@ jobs:
       run: npm run local
 
     - name: Allure report
-      uses: afiore/action-allure-report@v0.1.0
+      uses: npm run allure
