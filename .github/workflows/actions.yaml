@@ -10,7 +10,7 @@ jobs:
   build:
 
 
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     strategy:
       matrix:
@@ -24,14 +24,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: install 
-      run: npm install
-
-    - name: build 
-      run: tsc
-
+  
     - name: test
-      run: npm run bstack
+      run: npm run local
 
     - name: Allure report
       uses: afiore/action-allure-report@v0.1.0

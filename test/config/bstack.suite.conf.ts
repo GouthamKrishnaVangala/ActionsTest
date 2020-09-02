@@ -9,8 +9,8 @@ exports.config = {
     // on a remote machine).
     runner: "local",
 
-    user: process.env.BROWSERSTACK_USERNAME /* || 'goutham48' */,
-    key: process.env.BROWSERSTACK_ACCESS_KEY /* || 'DKjqZgWmzsEQkwQK4xNL' */, 
+    user: process.env.BROWSERSTACK_USERNAME || 'goutham48',
+    key: process.env.BROWSERSTACK_ACCESS_KEY || 'DKjqZgWmzsEQkwQK4xNL', 
     //
     // Override default path ('/wd/hub') for chromedriver service.
     // path: "/wd/hub",
@@ -51,6 +51,13 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
+
+    commonCapabilities: {
+      "resolution" : "1920x1080",
+      "name": "github actions test",
+      "build": "webdriver-browserstack github actions test "+Date.now(),
+    },
+  
     capabilities: [
       /* {
           "os_version" : "14",
@@ -68,36 +75,24 @@ exports.config = {
           "browserName": "Chrome",
           "browser_version" : "84.0",
           "browserstack.selenium_version" : "4.0.0-alpha-6",
-          "resolution" : "1920x1080",
-          "name": "github actions test",
-          "build": "webdriver-browserstack github actions test "+Date.now(),
       },
-      {
+     /*  {
           "os" : "OS X",
           "os_version" : "Catalina",
           "browserName" : "Safari",
           "browser_version" : "13.1",
-          "resolution" : "1600x1200",
-          "name": "github actions test",
-          "build": "webdriver-browserstack github actions test "+Date.now(),
       },
       {
           "os" : "OS X",
           "os_version" : "Mojave",
           "browserName" : "Safari",
           "browser_version" : "12.0",
-          "resolution" : "1280x960",
-          "name": "github actions test",
-          "build": "webdriver-browserstack github actions test "+Date.now(),
       },
       {
           "os": "Windows",
           "os_version": "10",
           "browserName": "Firefox",
           "browser_version" : "latest",
-          "resolution" : "1440x900",
-          "name": "github actions test",
-          "build": "webdriver-browserstack github actions test "+Date.now(),
       },
       {
           "os": "Windows",
@@ -105,10 +100,7 @@ exports.config = {
           "browserName": "Edge",
           "browser_version" : "latest",
           "browserstack.selenium_version" : "4.0.0-alpha-6",
-          "resolution" : "1920x1080",
-          "name": "github actions test",
-          "build": "webdriver-browserstack github actions test "+Date.now(),
-      }
+      } */
       
   ],
     //
@@ -261,3 +253,7 @@ exports.config = {
     }
   }
 };
+
+exports.config.capabilities.forEach(function(caps: any){
+  for(var i in exports.config.commonCapabilities) caps[i] = caps[i] || exports.config.commonCapabilities[i];
+});
